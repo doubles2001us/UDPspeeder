@@ -4,7 +4,8 @@ red='\e[91m'
 green='\e[92m'
 yellow='\e[93m'
 none='\e[0m'
-[[ $(id -u) != 0 ]] && echo -e " \nOops……please use ${red}root ${none}user to run ${yellow}~(^_^) ${none}\n" && exit 1
+
+[[ $(id -u) != 0 ]] && echo -e " \n Oops……please use ${red}root ${none}user to run ${yellow}~(^_^) ${none}\n" && exit 1
 
 cmd="apt-get"
 
