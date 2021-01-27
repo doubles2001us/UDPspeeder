@@ -5,7 +5,7 @@ green='\e[92m'
 yellow='\e[93m'
 none='\e[0m'
 
-[[ $(id -u) != 0 ]] && echo -e " \n哎呀……请使用 ${red}root ${none}用户运行 ${yellow}~(^_^) ${none}\n" && exit 1
+[[ $(id -u) != 0 ]] && echo -e " \nOops……please use ${red}root ${none}user to run ${yellow}~(^_^) ${none}\n" && exit 1
 
 cmd="apt-get"
 
@@ -22,7 +22,7 @@ if [[ -f /usr/bin/apt-get ]] || [[ -f /usr/bin/yum ]]; then
 
 else
 
-	echo -e " \n哈哈……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}\n" && exit 1
+	echo -e " \nHaha……this ${red}rubish-script${none} doesn't support your system. ${yellow}(-_-) ${none}\n" && exit 1
 
 fi
 
@@ -31,17 +31,17 @@ if [[ $sys_bit == "i386" || $sys_bit == "i686" ]]; then
 elif [[ $sys_bit == "x86_64" ]]; then
 	speeder_ver="speederv2_amd64"
 else
-	echo -e " \n$red毛支持你的系统....$none\n" && exit 1
+	echo -e " \n$redIt doesn't support your sytem....$none\n" && exit 1
 fi
 
 install() {
 	$cmd install wget -y
 # 	ver=$(curl -s https://api.github.com/repos/wangyu-/UDPspeeder/releases/latest | grep 'tag_name' | cut -d\" -f4)
-	ver="20180522.0"
+	ver="20210116.0"
 	UDPspeeder_download_link="https://github.com/wangyu-/UDPspeeder/releases/download/$ver/speederv2_binaries.tar.gz"
 	mkdir -p /tmp/UDPspeeder
 	if ! wget --no-check-certificate --no-cache -O "/tmp/UDPspeeder.tar.gz" $UDPspeeder_download_link; then
-		echo -e "$red 下载 UDPspeeder 失败！$none" && exit 1
+		echo -e "$red Downloading UDPspeeder failed!$none" && exit 1
 	fi
 	tar zxf /tmp/UDPspeeder.tar.gz -C /tmp/UDPspeeder
 	cp -f /tmp/UDPspeeder/$speeder_ver /usr/bin/speederv2
@@ -49,22 +49,22 @@ install() {
 	if [[ -f /usr/bin/speederv2 ]]; then
 		clear
 		echo -e " 
-		$green UDPspeeder 安装完成...$none
+		$green UDPspeeder Installation is finished....$none
 
-		输入$yellow speederv2 $none即可使用....
+		Input$yellow speederv2 $noneto use....
 
-		备注...这个脚本仅负责安装和卸载...
+		Notice...this script only helps to install and remove ...
 		
-		如何配置...后台运行...开鸡启动这些东西嘛...
+		How to set...run in background...autostart on boot...
 
-		大胸弟....你自己解决咯...
+		Brother....figure out by yourself...
 
-		脚本问题反馈: https://github.com/233boy/UDPspeeder/issues
+		Problem Feedback : https://github.com/233boy/UDPspeeder/issues
 		
-		UDPspeeder 帮助或反馈: https://github.com/wangyu-/UDPspeeder
+		UDPspeeder help or feed back: https://github.com/wangyu-/UDPspeeder
 		"
 	else
-		echo -e " \n$red安装失败...$none\n"
+		echo -e " \n$redFailed...$none\n"
 	fi
 	rm -rf /tmp/UDPspeeder
 	rm -rf /tmp/UDPspeeder.tar.gz
@@ -74,27 +74,27 @@ uninstall() {
 		UDPspeeder_pid=$(pgrep "speederv2")
 		[ $UDPspeeder_pid ] && kill -9 $UDPspeeder_pid
 		rm -rf /usr/bin/speederv2
-		echo -e " \n$green卸载完成...$none\n" && exit 1
+		echo -e " \n$greenUninstalled...$none\n" && exit 1
 	else
-		echo -e " \n$red大胸弟...你貌似毛有安装 UDPspeeder ....卸载个鸡鸡哦...$none\n" && exit 1
+		echo -e " \n$redHi bro...it seems there's no UDPspeeder ....what do you want to remove...$none\n" && exit 1
 	fi
 }
 error() {
 
-	echo -e "\n$red 输入错误！$none\n"
+	echo -e "\n$red Error input!$none\n"
 
 }
 while :; do
 	echo
-	echo "........... UDPspeeder 快速一键安装 by 233blog.com .........."
+	echo "........... UDPspeeder Quick Installation by 233blog.com .........."
 	echo
-	echo "帮助说明: https://233blog.com/post/12/"
+	echo "For help: https://233blog.com/post/12/"
 	echo
-	echo " 1. 安装"
+	echo " 1. Install"
 	echo
-	echo " 2. 卸载"
+	echo " 2. Remove"
 	echo
-	read -p "请选择[1-2]:" choose
+	read -p "Choice[1-2]:" choose
 	case $choose in
 	1)
 		install
