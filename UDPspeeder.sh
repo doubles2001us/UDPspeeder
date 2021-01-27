@@ -5,7 +5,7 @@ green='\e[92m'
 yellow='\e[93m'
 none='\e[0m'
 
-[[ $(id -u) != 0 ]] && echo -e " \n Oops……please use ${red}root ${none}user to run ${yellow}~(^_^) ${none}\n" && exit 1
+[[ $(id -u) != 0 ]] && echo -e " \nOops……pleaseuse ${red}root ${none}usertorun ${yellow}~(^_^) ${none}\n" && exit 1
 
 cmd="apt-get"
 
@@ -22,7 +22,7 @@ if [[ -f /usr/bin/apt-get ]] || [[ -f /usr/bin/yum ]]; then
 
 else
 
-	echo -e " \nHaha……this ${red}rubish-script${none} doesn't support your system. ${yellow}(-_-) ${none}\n" && exit 1
+	echo -e " \nHaha……this ${red}rubishscript${none} doesnotsupportyoursystem ${yellow}(-_-) ${none}\n" && exit 1
 
 fi
 
@@ -31,7 +31,7 @@ if [[ $sys_bit == "i386" || $sys_bit == "i686" ]]; then
 elif [[ $sys_bit == "x86_64" ]]; then
 	speeder_ver="speederv2_amd64"
 else
-	echo -e " \n$redIt doesn't support your sytem....$none\n" && exit 1
+	echo -e " \n$redItdoesnotsupportyoursytem....$none\n" && exit 1
 fi
 
 install() {
