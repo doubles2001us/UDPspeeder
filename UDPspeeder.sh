@@ -51,7 +51,7 @@ install() {
 		echo -e " 
 		$green UDPspeeder Installation is done...$none
 
-		Input$yellow speederv2 $noneto begin....
+		Input$yellow speederv2 $none to get a start....
 
 		Notice...this is only used to install or remove...
 		
@@ -76,7 +76,7 @@ uninstall() {
 		rm -rf /usr/bin/speederv2
 		echo -e " \n$greenRemoved...$none\n" && exit 1
 	else
-		echo -e " \n$redHi buddy...it seems you haven't installed UDPspeeder ....nothing...$none\n" && exit 1
+		echo -e " \n$redHi Buddy...it seems you haven't installed UDPspeeder ....Are you kidding...$none\n" && exit 1
 	fi
 }
 error() {
