@@ -74,9 +74,9 @@ uninstall() {
 		UDPspeeder_pid=$(pgrep "speederv2")
 		[ $UDPspeeder_pid ] && kill -9 $UDPspeeder_pid
 		rm -rf /usr/bin/speederv2
-		echo -e " \n$greenRemoved...$none\n" && exit 1
+		echo -e " \n$green Removed...$none\n" && exit 1
 	else
-		echo -e " \n$redHi Buddy...it seems you haven't installed UDPspeeder ....Are you kidding...$none\n" && exit 1
+		echo -e " \n$red Hi Buddy...it seems you haven't installed UDPspeeder ....Are you kidding...$none\n" && exit 1
 	fi
 }
 error() {
